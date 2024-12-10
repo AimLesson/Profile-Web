@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
 
         // Call the InstitusiSeeder
         $this->call(InstitusiSeeder::class);
+        // Call the AboutSeeder
+        $this->call(AboutSeeder::class);
     }
 }
