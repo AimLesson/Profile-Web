@@ -34,6 +34,7 @@ class BeritaController extends Controller
             'konten' => 'required|string',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'author' => 'required|string|max:255',
+            'embedYT' => 'required|string',
             'tanggal' => 'required|date',
         ]);
     
@@ -80,6 +81,7 @@ class BeritaController extends Controller
             'konten' => 'required|string',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'author' => 'required|string|max:255',
+            'embedYT' => 'required|string|max:255',
             'tanggal' => 'required|date',
         ]);
     

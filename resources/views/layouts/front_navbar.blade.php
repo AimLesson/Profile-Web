@@ -1,7 +1,7 @@
 <nav class="bg-gray-900 border-gray-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="assets/logo.png" class="h-11" alt="Flowbite Logo" />
+            <img src="{{ asset('assets/logo.png') }}" class="h-11" alt="Flowbite Logo" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Senat Mahasiswa STIKOM Yos Sudarso</span>
         </a>
         <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -13,10 +13,10 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-900">
                 <li>
-                    <a href="#" class="block py-2 px-3 text-gray-400 bg-blue-500 rounded md:bg-transparent md:text-blue-500 md:p-0">Home</a>
+                    <a href="/" class="block py-2 px-3 rounded md:p-0 {{ request()->is('/') ? 'text-blue-500 bg-blue-500 md:bg-transparent' : 'text-gray-400 hover:text-blue-500' }}">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-gray-400 rounded  hover:text-blue-500 md:p-0">About</a>
+                    <a href="/about" class="block py-2 px-3 rounded md:p-0 {{ request()->is('about') ? 'text-blue-500 bg-blue-500 md:bg-transparent' : 'text-gray-400 hover:text-blue-500' }}">About</a>
                 </li>
             </ul>
         </div>

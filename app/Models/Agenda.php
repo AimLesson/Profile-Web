@@ -21,6 +21,7 @@ class Agenda extends Model
         'gambar',
         'author',
         'tanggal',
+        'embedYT',
     ];
 
     // Cast columns to their appropriate types

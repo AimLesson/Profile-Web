@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-front-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Detail Berita') }}
@@ -11,9 +11,8 @@
                 <div class="p-8">
                     {{-- Image --}}
                     @if ($berita->gambar)
-                        <img src="{{ asset('storage/' . $berita->gambar) }}" 
-                             alt="{{ $berita->judul }}" 
-                             class="w-full h-64 object-cover rounded-lg mb-6">
+                        <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
+                            class="w-full h-64 object-cover rounded-lg mb-6">
                     @endif
 
                     {{-- Title --}}
@@ -32,19 +31,51 @@
                     </div>
 
                     {{-- Content --}}
-                    <div class="text-gray-700 leading-relaxed">
+                    <div class="text-gray-700 leading-relaxed mb-6">
                         {!! nl2br(e($berita->konten)) !!}
                     </div>
 
+                    {{-- Embed YouTube Video --}}
+                    @if ($berita->embedYT)
+                        @php
+                            // Extract the src attribute from the iframe tag
+                            $embedUrl = null;
+                            if (preg_match('/src="([^"]+)"/', $berita->embedYT, $matches)) {
+                                $embedUrl = $matches[1]; // The first capture group is the URL
+                            }
+                        @endphp
+
+                        @if ($embedUrl)
+                            <div class="mb-6">
+                                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tonton Video</h2>
+                                <div class="relative w-full" style="padding-top: 56.25%;"> {{-- Maintain 16:9 ratio --}}
+                                    <iframe src="{{ $embedUrl }}" title="YouTube video player"
+                                        sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                                        class="absolute top-0 left-0 w-full h-full rounded-lg">
+                                    </iframe>
+
+                                </div>
+                            </div>
+                        @else
+                            <p class="text-red-500">Invalid YouTube embed code.</p>
+                        @endif
+                    @endif
+
+
+
                     {{-- Back Button --}}
                     <div class="mt-8">
-                        <a href="{{ route('berita.index') }}" 
-                           class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <a href="{{ auth()->check() ? route('berita.index') : url('/') }}"
+                            class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Kembali ke Berita
                         </a>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-front-layout>
