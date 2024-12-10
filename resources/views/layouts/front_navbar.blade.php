@@ -18,6 +18,9 @@
                 <li>
                     <a href="/about" class="block py-2 px-3 rounded md:p-0 {{ request()->is('about') ? 'text-blue-500 bg-blue-500 md:bg-transparent' : 'text-gray-400 hover:text-blue-500' }}">About</a>
                 </li>
+                <li>
+                    <a href="/institusi" class="block py-2 px-3 rounded md:p-0 {{ request()->is('institusi') ? 'text-blue-500 bg-blue-500 md:bg-transparent' : 'text-gray-400 hover:text-blue-500' }}">Institusi</a>
+                </li>
             </ul>
         </div>
     </div>

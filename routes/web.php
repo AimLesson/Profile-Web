@@ -12,6 +12,10 @@ Route::get('/about', function () {
     return view('front.about');
 });
 
+Route::get('/institusi', function () {
+    return view('front.institusi');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
