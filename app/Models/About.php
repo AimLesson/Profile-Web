@@ -18,5 +18,14 @@ class About extends Model
         'title',
         'description',
         'image',
+        'institusi_id', // Foreign key for the relationship
     ];
+
+    /**
+     * Relationship to the Institusi model.
+     */
+    public function institusi()
+    {
+        return $this->belongsTo(Institusi::class);
+    }
 }

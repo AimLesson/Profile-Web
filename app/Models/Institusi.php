@@ -19,5 +19,19 @@ class Institusi extends Model
         'name',
         'address',
         'phone',
+        'logo',
     ];
+
+    /**
+     * Relationship to the About model.
+     */
+    public function about()
+    {
+        return $this->hasOne(About::class);
+    }
+
+    public function berita()
+    {
+        return $this->hasMany(Berita::class);
+    }
 }

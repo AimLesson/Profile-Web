@@ -10,10 +10,8 @@ class Berita extends Model
 {
     use HasFactory, SoftDeletes;
 
-    // Define the table name (optional if it follows Laravel's naming convention)
     protected $table = 'berita';
 
-    // Fields that can be mass-assigned
     protected $fillable = [
         'judul',
         'deskripsi',
@@ -22,10 +20,18 @@ class Berita extends Model
         'author',
         'tanggal',
         'embedYT',
+        'institusi_id', // Add this to allow linking to Institusi
     ];
 
-    // Cast columns to their appropriate types
     protected $casts = [
         'tanggal' => 'date',
     ];
+
+    /**
+     * Relationship to the Institusi model.
+     */
+    public function institusi()
+    {
+        return $this->belongsTo(Institusi::class);
+    }
 }
