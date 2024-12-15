@@ -53,50 +53,6 @@
               <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                   <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
-<footer class="bg-gray-800 text-white py-6">
-    <div class="mx-auto w-full max-w-screen-xl px-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            {{-- Dynamic Logo and Name --}}
-            <div class="flex flex-col items-center md:items-start mb-4 md:mb-0">
-                @if (isset($institusi) && $institusi->logo)
-                    <img src="{{ asset('storage/' . $institusi->logo) }}" class="h-12 mb-2" alt="{{ $institusi->name }} Logo">
-                @else
-                    <img src="{{ asset('assets/default-logo.png') }}" class="h-12 mb-2" alt="Default Logo">
-                @endif
-                <span class="text-lg font-semibold">{{ $institusi->name ?? 'Senat Mahasiswa' }}</span>
-            </div>
-
-            {{-- Navigation Links --}}
-            <div class="grid grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-3">
-                <div>
-                    <h2 class="mb-4 text-sm font-semibold uppercase">Follow Us</h2>
-                    <ul class="text-gray-400">
-                        <li class="mb-2">
-                            <a href="https://github.com/" class="hover:underline">Instagram</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.com/" class="hover:underline">Tiktok</a>
-                        </li>
-                        <li>
-                            <a href="https://discord.com/" class="hover:underline">Youtube</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        {{-- Divider --}}
-        <hr class="my-6 border-gray-600" />
-
-        {{-- Copyright and Social Links --}}
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <span class="text-sm text-gray-400">
-                &copy; {{ now()->year }} {{ $institusi->name ?? 'Yayasan Bruderan Purwokerto' }}. All Rights Reserved.
-            </span>
-            <div class="flex mt-4 md:mt-0 space-x-5">
-                <a href="#" class="text-gray-400 hover:text-white">
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" />
                     </svg>
                     <span class="sr-only">Facebook</span>
                 </a>
