@@ -72,12 +72,12 @@
                                 {{ __('SENAT MAHASISWA 2024') }}
                             </div>
                         </div>
-                
+
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                             {{-- Berita Section --}}
                             <div
                                 class="flex flex-wrap justify-center h-auto max-h-fit rounded bg-gray-50 dark:bg-gray-800 p-4 col-span-1 md:col-span-2">
-                                <div class="p-1 text-xl border-b text-gray-900 text-white mb-4">
+                                <div class="p-1 text-xl border-b text-gray-900  mb-4">
                                     {{ __('BERITA SENAT MAHASISWA') }}
                                 </div>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -119,7 +119,7 @@
                                     @endforeach
                                 </div>
                             </div>
-                
+
                             {{-- Agenda Section --}}
                             <div
                                 class="flex flex-col items-center h-auto rounded bg-gray-50 dark:bg-gray-800 p-4 max-h-fit overflow-y-auto">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
