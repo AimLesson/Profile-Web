@@ -14,11 +14,18 @@ class InstitusiController extends Controller
         return view('front.institusi_detail', compact('institusi','beritas'));
     }
 
-    public function about($institusiSlug)
+    public function about($institusiSlug = null)
     {
-        $institusi = Institusi::where('slug', $institusiSlug)->with('about')->firstOrFail();
+        if ($institusiSlug) {
+            $institusi = Institusi::where('slug', $institusiSlug)->with('about')->firstOrFail();
+        } else {
+            // Load a default institusi or handle the case where no slug is provided
+            $institusi = Institusi::first(); // or define a default Institusi instance
+        }
+
         return view('front.about', compact('institusi'));
     }
+
 
     public function list()
     {
@@ -30,7 +37,7 @@ class InstitusiController extends Controller
     {
         $institusi = Institusi::where('slug', $slug)->firstOrFail();
         $beritas = Berita::where('institusi_id', $institusi->id)->latest()->get();
-    
+
         return view('front.home', compact('institusi', 'beritas'));
     }
 }

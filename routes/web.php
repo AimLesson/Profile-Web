@@ -39,10 +39,18 @@ Route::get('berita/{berita}', [BeritaController::class, 'show'])->name('berita.s
 // Dynamic routes for Institusi
 Route::middleware('load.institusi')->group(function () {
     // Home route for specific Institusi
-    Route::get('/{institusiSlug}', [InstitusiController::class, 'index'])->name('institusi.home');
-    Route::get('/{institusiSlug}/about', [InstitusiController::class, 'about'])->name('institusi.about');
-    Route::get('/institusi/{slug}', [InstitusiController::class, 'show'])->name('institusi.detail');
+    Route::get('/institusi/{institusiSlug}', [InstitusiController::class, 'index'])->name('institusi.home');
+
+    // About route for specific Institusi
+    Route::get('/institusi/{institusiSlug}/about', [InstitusiController::class, 'about'])->name('institusi.about');
+
+    // Generic about route without an institusiSlug
+    Route::get('/about', [InstitusiController::class, 'about'])->name('about');
+
+    // Detail route for Institusi
+    Route::get('/institusi/{slug}/detail', [InstitusiController::class, 'show'])->name('institusi.detail');
 });
+
 
 // Authentication routes
 require __DIR__ . '/auth.php';

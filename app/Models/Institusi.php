@@ -20,6 +20,7 @@ class Institusi extends Model
         'address',
         'phone',
         'logo',
+        'slug',
     ];
 
     /**
